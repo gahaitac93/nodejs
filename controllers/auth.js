@@ -11,7 +11,6 @@ jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey = 'wowwow';
 
 let strategy = new JwtStrategy(jwtOptions, function(jwt_payload, next) {
-    console.log('payload received', jwt_payload);
     let user = getUser({ id: jwt_payload.id });
 
     if (user) {
@@ -44,9 +43,9 @@ const userLogin = async (req, res, next) => {
             if (user.password === password) {
                 let payload = { id: user.id };
                 let token = jwt.sign(payload, jwtOptions.secretOrKey);
-                res.json({ message: 'success', token: token });
+                return res.json({ message: 'success', token: token });
             } else {
-                res.status(401).json({ message: 'Password is incorrect' });
+                return res.status(401).json({ message: 'Password is incorrect' });
             }
         }
     }catch (e) {
@@ -54,7 +53,21 @@ const userLogin = async (req, res, next) => {
     }
 };
 
+const createUser = async (req, res) => {
+    try {
+        let data = req.body;
+        if(data) {
+            let user = await models.User.create(data);
+            return res.json({ message: 'success', user: user });
+        }
+
+    }catch (e) {
+        return res.status(500).send(e.message);
+    }
+};
+
 module.exports = {
-    userLogin
+    userLogin,
+    createUser
 };
 

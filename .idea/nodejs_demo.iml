@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="nodejs" />
     <orderEntry type="module" module-name="sequelize-with-postgres-tutorial-master" />
+    <orderEntry type="module" module-name="nodejs-jwt-authenticate-user" />
   </component>
 </module>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:/nodejs/.idea/nodejs.iml" filepath="D:/nodejs/.idea/nodejs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nodejs-jwt-authenticate-user/.idea/nodejs-jwt-authenticate-user.iml" filepath="$PROJECT_DIR$/../nodejs-jwt-authenticate-user/.idea/nodejs-jwt-authenticate-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/nodejs_demo.iml" filepath="$PROJECT_DIR$/.idea/nodejs_demo.iml" />
       <module fileurl="file://$USER_HOME$/Downloads/sequelize-with-postgres-tutorial-master/sequelize-with-postgres-tutorial-master/.idea/sequelize-with-postgres-tutorial-master.iml" filepath="$USER_HOME$/Downloads/sequelize-with-postgres-tutorial-master/sequelize-with-postgres-tutorial-master/.idea/sequelize-with-postgres-tutorial-master.iml" />
     </modules>
