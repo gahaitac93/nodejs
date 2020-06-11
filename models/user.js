@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: DataTypes.STRING,
@@ -18,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       as: 'comments',
       onDelete: 'CASCADE',
     });
+    User.prototype.validPassword = function(password) {
+      return bcrypt.compareSync(password, this.password);
+    };
   };
   return User;
 };

@@ -35,12 +35,16 @@ const getUser = async obj => {
 const userLogin = async (req, res, next) => {
     try {
         const { email, password } = req.body;
+        let user = await models.User.findOne({where : {
+            email: email
+            }});
+        console.log(user.password+ "aaaaaaaa");
         if (email && password) {
             let user = await getUser({ email : email});
             if (!user) {
                 res.status(401).json({ message: 'No such user found' });
             }
-            if (user.password === password) {
+            if (user.validPassword(password)) {
                 let payload = { id: user.id };
                 let token = jwt.sign(payload, jwtOptions.secretOrKey);
                 return res.json({ message: 'success', token: token });
