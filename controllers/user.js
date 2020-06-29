@@ -62,10 +62,27 @@ const updateUser = async (req, res) => {
     }
 
 };
+
+const deleteUser = async (req, res) => {
+    try {
+        let id = req.body.product_id;
+        const deletePost = await models.User.destroy({
+            where: {
+                id : id
+            }
+        });
+        if(deletePost) {
+            res.redirect('/');
+        }
+    }catch (e) {
+        console.log(e.message);
+    }
+};
 module.exports = {
     createUser,
     listUsers,
     updateUser,
-    registerUser
+    registerUser,
+    deleteUser
 };
 

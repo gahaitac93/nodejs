@@ -10,11 +10,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-4">
-            <%  if(errors){ %>
-            <% errors.forEach(function(error) { %>
-            <p class="alert alert-danger"><% error.msg %></p>
-            <% }); %>
-            <% }%>
+                <% if (messages.success) { %>
+                    <p class="alert alert-success mt-4"><%- messages.success %></p>
+                <% } %>
             <h2>Users List</h2>
             <a  href="/create" class="btn btn-success" style="margin-bottom: 10px">Add New</a>
             <table class="table table-striped" id="mytable">
@@ -103,6 +101,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script>
+    console.log(errors);
     $(document).ready(function(){
         //showing data to edit modal
         $('#mytable').on('click','.edit',function() {

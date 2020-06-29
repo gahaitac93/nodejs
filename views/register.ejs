@@ -20,6 +20,13 @@
 <body>
 
 <div class="container">
+    <% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+   <% } %>
+
+    <% if (messages.success) { %>
+        <p class="alert alert-success mt-4"><%- messages.success %></p>
+    <% } %>
     <form method="POST" action="/register"  >
         <h2>Register account </h2>
         <input name="name" type="text" class="form-control" placeholder="Name"
